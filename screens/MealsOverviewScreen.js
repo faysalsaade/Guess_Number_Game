@@ -1,9 +1,21 @@
+import MealItem from "../components/MealItem";
 import { MEALS } from "../data/dummy-data";
-import { View, Text, StyleSheet } from "react-native";
-function MealsOverviewScreen() {
+import { Text, View, FlatList, StyleSheet } from "react-native";
+function MealsOverviewScreen({ route }) {
+  const catId = route.params.categoryId;
+  const displayedMeals = MEALS.filter((mealItem) => {
+    return mealItem.categoryIds.indexOf(catId) >= 0;
+  });
+  function renderMealItem(itemData) {
+    return <MealItem title={itemData.item.title} />;
+  }
   return (
     <View style={styles.container}>
-      <Text>The King Is Faysal</Text>
+      <FlatList
+        data={displayedMeals}
+        keyExtractor={(item) => item.id}
+        renderItem={renderMealItem}
+      />
     </View>
   );
 }
