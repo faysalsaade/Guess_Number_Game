@@ -3,6 +3,7 @@ import { CATEGORIES, MEALS } from "../data/dummy-data";
 import { View, FlatList, StyleSheet } from "react-native";
 
 import { useLayoutEffect } from "react";
+import Meal from "../models/meal";
 function MealsOverviewScreen({ route, navigation }) {
   const catId = route.params.categoryId;
   const displayedMeals = MEALS.filter((mealItem) => {
@@ -23,6 +24,7 @@ function MealsOverviewScreen({ route, navigation }) {
 
     const mealItemProps = {
       title: item.title,
+      id: item.id,
       imageUrl: item.imageUrl,
       affordability: item.affordability,
       complexity: item.complexity,
