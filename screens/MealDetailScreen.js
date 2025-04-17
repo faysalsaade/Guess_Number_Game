@@ -1,8 +1,7 @@
 import { Text, View, Image, StyleSheet } from "react-native";
 import { MEALS } from "../data/dummy-data";
 import MealDetails from "../components/MealDetails";
-import Subtitle from "../components/MealDetail/SUbTitle";
-
+import Subtitle from "../components/MealDetail/SubTitle";
 function MealDetailScreen({ route }) {
   const mealId = route.params.mealId;
 
