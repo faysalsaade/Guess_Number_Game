@@ -2,6 +2,7 @@ import { Text, View, Image, StyleSheet } from "react-native";
 import { MEALS } from "../data/dummy-data";
 import MealDetails from "../components/MealDetails";
 import Subtitle from "../components/MealDetail/SubTitle";
+import List from "../components/MealDetail/List";
 function MealDetailScreen({ route }) {
   const mealId = route.params.mealId;
 
@@ -22,9 +23,9 @@ function MealDetailScreen({ route }) {
         <Text key={ingredient}>{ingredient}</Text>
       ))}
       <Subtitle>Steps</Subtitle>
-      {selectedMeal.steps.map((step) => (
-        <Text key={step}>{step}</Text>
-      ))}
+      <List data={selectedMeal.ingredients} />
+      <Subtitle>Steps</Subtitle>
+      <List data={selectedMeal.steps} />
     </View>
   );
 }
