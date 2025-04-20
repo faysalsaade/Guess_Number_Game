@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Button } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import CategoriesScreen from "./screens/CategoriesScreen";
 import { NavigationContainer } from "@react-navigation/native";
@@ -34,6 +34,11 @@ export default function App() {
           <Stack.Screen
             name="MealsOverview"
             component={MealsOverviewScreen}
+            options={{
+              headerRight: () => {
+                return <Button title="Tap Me" />;
+              },
+            }}
             // options={({ route, navigation }) => {
             //   const catId = route.params.categoryId;
             //   return {
@@ -47,6 +52,4 @@ export default function App() {
     </>
   );
 }
-const styles = StyleSheet.create({
-  container: {},
-});
+const styles = StyleSheet.create({});
