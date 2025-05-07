@@ -14,7 +14,7 @@ const BottomTabs = createBottomTabNavigator();
 function ExpensesOverView() {
   return (
     <BottomTabs.Navigator
-      screenOptions={{
+      screenOptions={() => ({
         headerStyle: {
           backgroundColor: GlobalStyles.colors.primary500,
         },
@@ -29,7 +29,7 @@ function ExpensesOverView() {
             onPress={() => {}}
           />
         ),
-      }}
+      })}
     >
       <BottomTabs.Screen
         name="RecentExpenses"
