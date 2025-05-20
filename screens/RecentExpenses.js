@@ -16,7 +16,7 @@ function RecentExpenses() {
     <ExpensesOutPut
       expenses={recentExpenses}
       expensesPeriod="Last 7 Days"
-      fallBackText="NO expenses registered for the last 7 days."
+      fallBackText="No expenses registered for the last 7 days."
     />
   );
 }
