@@ -1,5 +1,5 @@
 import { View, StyleSheet } from "react-native";
-import Input from "./input";
+import Input from "./Input";
 function ExpenseForm() {
   function amountChangedHandler() {}
 
@@ -7,6 +7,7 @@ function ExpenseForm() {
     <View>
       <View style={styles.inputsRow}>
         <Input
+          style={styles.rowInput}
           label="Amount"
           textInputConfig={{
             keyboardType: "decimal-pad",
@@ -14,6 +15,7 @@ function ExpenseForm() {
           }}
         />
         <Input
+          style={styles.rowInput}
           label="Date"
           textInputConfig={{
             placeholder: "YYYY-MM-DD",
@@ -39,5 +41,8 @@ const styles = StyleSheet.create({
   inputsRow: {
     flexDirection: "row",
     justifyContent: "space-between",
+  },
+  rowInput: {
+    flex: 1,
   },
 });
