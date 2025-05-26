@@ -7,9 +7,13 @@ function ExpenseForm() {
     date: "",
     description: "",
   });
-  function inputChangedHandler(inputIdentifier, enteredText) {
+  function inputChangedHandler(inputIdentifier, enteredValue) {
     setInputValues((curInputValues) => {
-      return;
+      return {
+        ...curInputValues,
+
+        [inputIdentifier]: enteredValue,
+      };
     });
   }
 
@@ -22,7 +26,7 @@ function ExpenseForm() {
           label="Amount"
           textInputConfig={{
             keyboardType: "decimal-pad",
-            onChangeText: inputChangedHandler,
+            onChangeText: inputChangedHandler.bind(this, "amount"),
             value: amountValue,
           }}
         />
