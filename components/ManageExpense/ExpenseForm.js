@@ -1,7 +1,11 @@
 import { Text, View, StyleSheet } from "react-native";
 import Input from "./Input";
+import { useState } from "react";
 function ExpenseForm() {
-  function amountChangedHandler() {}
+  const [amountValue, setAmountValue] = useState("");
+  function amountChangedHandler(enteredText) {
+    setAmountValue(enteredText);
+  }
 
   return (
     <View style={styles.form}>
@@ -21,7 +25,10 @@ function ExpenseForm() {
           textInputConfig={{
             placeholder: "YYYY-MM-DD",
             maxLength: 10,
-            onChangeText: () => {},
+            onChangeText: () => {
+              amountChangedHandler;
+            },
+            value: amountValue,
           }}
         />
       </View>
