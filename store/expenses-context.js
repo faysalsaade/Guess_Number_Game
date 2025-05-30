@@ -1,9 +1,8 @@
 import { createContext, useReducer } from "react";
-
 export const ExpensesContext = createContext({
   expenses: [],
   addExpense: ({ description, amount, date }) => {},
-  setExpenses: () => {},
+  setExpenses: (expenses) => {},
   deleteExpense: (id) => {},
   updateExpense: (id, { description, amount, date }) => {},
 });
@@ -29,10 +28,8 @@ function expensesReducer(state, action) {
       return state;
   }
 }
-
 function ExpensesContextProvider({ children }) {
   const [expensesState, dispatch] = useReducer(expensesReducer, []);
-
   function addExpense(expenseData) {
     dispatch({ type: "ADD", payload: expenseData });
   }
@@ -42,24 +39,20 @@ function ExpensesContextProvider({ children }) {
   function deleteExpense(id) {
     dispatch({ type: "DELETE", payload: id });
   }
-
   function updateExpense(id, expenseData) {
     dispatch({ type: "UPDATE", payload: { id: id, expenseData: expenseData } });
   }
-
   const value = {
     expenses: expensesState,
-    addExpense: addExpense,
     setExpenses: setExpenses,
+    addExpense: addExpense,
     deleteExpense: deleteExpense,
     updateExpense: updateExpense,
   };
-
   return (
     <ExpensesContext.Provider value={value}>
       {children}
     </ExpensesContext.Provider>
   );
 }
-
 export default ExpensesContextProvider;
