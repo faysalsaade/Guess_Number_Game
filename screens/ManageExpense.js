@@ -1,11 +1,11 @@
-import { useContext, useLayoutEffect } from "react";
+import { useContext, useEffect, useLayoutEffect } from "react";
 import { View, StyleSheet } from "react-native";
 import IconButton from "../components/UI/IconButton";
 import { GlobalStyles } from "../constants/styles";
 
 import { ExpensesContext } from "../store/expenses-context";
 import ExpenseForm from "../components/ManageExpense/ExpenseForm";
-import { storeExpense } from "../util/http";
+import { storeExpense, updateExpense, deleteExpense } from "../util/http";
 
 function ManageExpense({ route, navigation }) {
   const expensesCtx = useContext(ExpensesContext);
@@ -14,13 +14,17 @@ function ManageExpense({ route, navigation }) {
   const selectedExpense = expensesCtx.expenses.find(
     (expense) => expense.id === editedExpenseId
   );
+
+  console.log("momo", editedExpenseId);
+
   useLayoutEffect(() => {
     navigation.setOptions({
       title: isEditing ? "Edit Expense" : "AddExpense",
     });
   }, [navigation, isEditing]);
 
-  function deleteExpenseHandler() {
+  async function deleteExpenseHandler() {
+    await deleteExpense(editedExpenseId);
     expensesCtx.deleteExpense(editedExpenseId);
     navigation.goBack();
   }
@@ -30,6 +34,7 @@ function ManageExpense({ route, navigation }) {
   async function confirmHandler(expenseData) {
     if (isEditing) {
       expensesCtx.updateExpense(editedExpenseId, expenseData);
+      await updateExpense(editedExpenseId, expenseData);
     } else {
       const id = await storeExpense(expenseData);
       expensesCtx.addExpense({ ...expenseData, id: id });
