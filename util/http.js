@@ -7,7 +7,8 @@ export async function storeExpense(expenseData) {
     expenseData
   );
 
-  response.data.name;
+  const id = response.data.name;
+  return id;
 }
 export async function fetchExpenses() {
   const response = await axios.get(BACKEND_URL + "/expenses.json");
