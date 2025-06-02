@@ -15,8 +15,6 @@ function ManageExpense({ route, navigation }) {
     (expense) => expense.id === editedExpenseId
   );
 
-  console.log("momo", editedExpenseId);
-
   useLayoutEffect(() => {
     navigation.setOptions({
       title: isEditing ? "Edit Expense" : "AddExpense",
@@ -67,6 +65,7 @@ export default ManageExpense;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+
     padding: 24,
     backgroundColor: GlobalStyles.colors.primary800,
   },
