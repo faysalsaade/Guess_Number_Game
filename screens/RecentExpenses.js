@@ -24,7 +24,6 @@ function RecentExpenses() {
     }
     getExpenses();
   }, []);
-  console.log(error);
 
   if (error && !isFetching) {
     return <ErrorOverlay message={error} />;

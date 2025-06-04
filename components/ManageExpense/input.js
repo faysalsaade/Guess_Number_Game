@@ -9,7 +9,7 @@ function Input({ label, invalid, style, textInputConfig }) {
   if (invalid) {
     inputStyles.push(styles.invalidInput);
   }
-  return -+(
+  return (
     <View style={([styles.inputContainer], style)}>
       <Text style={[styles.label, invalid && styles.invalidLabel]}>
         {label}
