@@ -7,6 +7,7 @@ import AuthForm from "./AuthForm";
 import { Colors } from "../../constants/styles";
 
 function AuthContent({ isLogin, onAuthenticate }) {
+  const navigation = useNavigation();
   const [credentialsInvalid, setCredentialsInvalid] = useState({
     email: false,
     password: false,
@@ -14,7 +15,13 @@ function AuthContent({ isLogin, onAuthenticate }) {
     confirmPassword: false,
   });
 
-  function switchAuthModeHandler() {}
+  function switchAuthModeHandler() {
+    if (isLogin) {
+      navigation.replace("Signup");
+    } else {
+      navigation.replace("Login");
+    }
+  }
 
   function submitHandler(credentials) {
     let { email, confirmEmail, password, confirmPassword } = credentials;
