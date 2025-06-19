@@ -57,6 +57,14 @@ function AuthContent({ isLogin, onAuthenticate }) {
         isLogin={isLogin}
         onSubmit={submitHandler}
         credentialsInvalid={credentialsInvalid}
+      />
+      <View style={styles.buttons}>
+        <FlatButton onPress={switchAuthModeHandler}>
+          {isLogin ? "Create a new user" : "Log in instead"}
+        </FlatButton>
+      </View>
+    </View>
+  );
 }
 
 export default AuthContent;
