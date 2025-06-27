@@ -11,6 +11,16 @@ function AuthContextProvider({ children }) {
   function authenticate(token) {
     setAuthToken(token);
   }
-  return <AuthContext.Provider>{children}</AuthContext.Provider>;
+  function logout() {
+    setAuthToken(null);
+  }
+  const value = {
+    token: authToken,
+    isAuthenticated: !!authToken,
+    authenticate: authenticate,
+    logout: logout,
+  };
+
+  return <AuthContext.Provider value={value}> {children}</AuthContext.Provider>;
 }
 export default AuthContextProvider;
