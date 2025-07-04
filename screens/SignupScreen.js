@@ -5,11 +5,13 @@ import LoadingOverlay from "../components/ui/LoadingOverlay";
 import { Alert } from "react-native";
 function SignupScreen() {
   const [isAuthenticating, setIsAuthenticating] = useState(false);
-  useContext(AuthContent);
+
+  const authCtx = useContext(AuthContent);
   async function signupHandler({ email, password }) {
     setIsAuthenticating(true);
     try {
       await createUser(email, password);
+      authCtx.authenticate();
     } catch (error) {
       Alert.alert(
         "Authentication failed",
