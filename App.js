@@ -41,11 +41,9 @@ function AuthenticatedStack() {
 
 function Navigation() {
   return (
-    <AuthContextProvider>
-      <NavigationContainer>
-        <AuthStack />
-      </NavigationContainer>
-    </AuthContextProvider>
+    <NavigationContainer>
+      <AuthStack />
+    </NavigationContainer>
   );
 }
 
@@ -53,7 +51,9 @@ export default function App() {
   return (
     <>
       <StatusBar style="light" />
-      <Navigation />
+      <AuthContextProvider>
+        <Navigation />
+      </AuthContextProvider>
     </>
   );
 }
