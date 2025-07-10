@@ -3,7 +3,7 @@ export const AuthContext = createContext({
   token: "",
   isAuthenticated: false,
   authenticate: (token) => {},
-  logOut: () => {},
+  logout: () => {},
 });
 
 function AuthContextProvider({ children }) {
