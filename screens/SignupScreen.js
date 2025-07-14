@@ -14,7 +14,6 @@ function SignupScreen() {
 
     try {
       const token = await createUser(email, password);
-      console.log("Token received:", token);
 
       authCtx.authenticate(token);
     } catch (error) {
