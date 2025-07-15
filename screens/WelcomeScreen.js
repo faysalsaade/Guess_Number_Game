@@ -6,6 +6,7 @@ function WelcomeScreen() {
   const [fetchedMessage, setFetchedMessage] = useState("");
   const authCtx = useContext(AuthContext);
   const token = authCtx.token;
+
   useEffect(() => {
     axios
       .get(
@@ -20,7 +21,7 @@ function WelcomeScreen() {
     <View style={styles.rootContainer}>
       <Text style={styles.title}>Welcome!</Text>
       <Text>You authenticated successfully!</Text>
-      <Text>{fetchedMessage}</Text>
+      <Text style={styles.message}>{fetchedMessage}</Text>
     </View>
   );
 }
@@ -38,5 +39,10 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "bold",
     marginBottom: 8,
+  },
+  message: {
+    fontSize: 13.7,
+    color: "#9000ffff",
+    textAlign: "center",
   },
 });
