@@ -14,13 +14,7 @@ function WelcomeScreen() {
           token
       )
       .then((response) => {
-        setFetchedMessage(response.data);
-      });
-  }, [token]);
-  return (
-    <View style={styles.rootContainer}>
-      <Text style={styles.title}>Welcome!</Text>
-      <Text>You authenticated successfully!</Text>
+        setFetchedMessage(respo!</Text>
       <Text style={styles.message}>{fetchedMessage}</Text>
     </View>
   );
