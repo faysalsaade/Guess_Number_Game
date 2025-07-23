@@ -1,12 +1,13 @@
-import { FlatList } from "react-native-gesture-handler";
 import PlaceItem from "./placeItem";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, Text, FlatList } from "react-native";
 
 function PlaceList({ places }) {
   if (!places || places.length === 0) {
     return (
-      <View>
-        <Text>No places added yet - start adding some!</Text>
+      <View style={styles.fallbackContainer}>
+        <Text style={styles.fallbackText}>
+          No places added yet - start adding some!
+        </Text>
       </View>
     );
   }
@@ -18,11 +19,15 @@ function PlaceList({ places }) {
     />
   );
 }
+
 export default PlaceList;
 const styles = StyleSheet.create({
   fallbackContainer: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+  },
+  fallbackText: {
+    fontSize: 16,
   },
 });
