@@ -15,6 +15,10 @@ export default function App() {
             name="AllPlaces"
             component={AllPlaces}
             options={({ navigation }) => ({
+              title: "Your Favorite Places",
+              headerStyle: { backgroundColor: "#f4511e" },
+              headerTintColor: "#fff",
+              headerTitleStyle: { fontWeight: "bold" },
               headerRight: ({ tintColor }) => (
                 <IconButton
                   icon="add"
