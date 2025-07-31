@@ -22,9 +22,9 @@ export default function App() {
           <Stack.Screen
             name="AllPlaces"
             component={AllPlaces}
+            onPress={() => navigation.navigate("AddPlace")}
             options={({ navigation }) => ({
               title: "Your Favorite Places",
-
               headerRight: ({ tintColor }) => (
                 <IconButton
                   icon="add"
