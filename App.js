@@ -25,11 +25,11 @@ export default function App() {
             onPress={() => navigation.navigate("AddPlace")}
             options={({ navigation }) => ({
               title: "Your Favorite Places",
-              headerRight: ({ tintColor }) => (
+              headerRight: ({}) => (
                 <IconButton
                   icon="add"
                   size={24}
-                  color={tintColor}
+                  color={Colors.gray700}
                   onPress={() => navigation.navigate("AddPlace")}
                 />
               ),
