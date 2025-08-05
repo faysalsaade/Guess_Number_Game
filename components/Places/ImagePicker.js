@@ -33,11 +33,15 @@ function ImagePicker() {
       aspect: [16, 9],
       quality: 0.5,
     });
-    console.log(image);
+    setPickedImage(image.uri);
+  }
+  let imagePreview = <Text>No image taken yet.</Text>;
+  if (pickedImage) {
+    imagePreview = <Image source={{ uri: pickedImage }} />;
   }
   return (
     <View>
-      <View></View>
+      <View>{imagePreview}</View>
       <Button title="Take Image" onPress={takeImageHandler} />
     </View>
   );
