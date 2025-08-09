@@ -26,9 +26,9 @@ export default function App() {
               title: "Your Favorite Places",
               headerRight: () => (
                 <IconButton
-                  icon="add"
+                  icon="remove"
                   size={24}
-                  color={"red"}
+                  color={Colors.gray700}
                   onPress={() => navigation.navigate("AddPlace")}
                 />
               ),
