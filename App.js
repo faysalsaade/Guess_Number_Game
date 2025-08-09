@@ -4,7 +4,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import AllPlaces from "./screens/AllPlaces";
 import AddPlace from "./screens/AddPlace";
 import { Colors } from "./components/constants/colors";
-import IconBtn from "./components/UI/IconBtn";
+import IconButton from "./components/UI/IconButton";
 
 const Stack = createNativeStackNavigator();
 export default function App() {
@@ -25,10 +25,10 @@ export default function App() {
             options={({ navigation }) => ({
               title: "Your Favorite Places",
               headerRight: () => (
-                <IconBtn
-                  icon="add"
+                <IconButton
+                  icon="remove"
                   size={24}
-                  color={Colors.gray700}
+                  color={"red"}
                   onPress={() => navigation.navigate("AddPlace")}
                 />
               ),
