@@ -1,9 +1,10 @@
 import { Pressable, StyleSheet } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import { Colors } from "../constants/colors";
 function IconButton({ icon, size, color, onPress }) {
   // Fallbacks for icon and color
   const iconName = icon || "add";
-  const iconColor = color || "#e63946"; // fallback to a visible red
+  const iconColor = color || Colors.gray700; // fallback to a visible red
   return (
     <Pressable
       style={({ pressed }) => [styles.button, pressed && styles.pressed]}

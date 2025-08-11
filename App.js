@@ -26,9 +26,9 @@ export default function App() {
               title: "Your Favorite Places",
               headerRight: () => (
                 <IconButton
-                  icon="add-circle"
-                  size={36}
-                  color="#e63946"
+                  icon="add"
+                  size={24}
+                  color={Colors.gray700}
                   onPress={() => alert("Header button pressed!")}
                 />
               ),
