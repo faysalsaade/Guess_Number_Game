@@ -1,8 +1,9 @@
-import { Image, View, Text, Pressable, StyleSheet } from "react-native";
+import { Image, View, Text, Pressable } from "react-native";
+
 function PlaceItem({ place, onSelect }) {
   return (
     <Pressable onPress={onSelect}>
-      <Image source={{ uri: place.imageUrl }} />
+      <Image source={{ uri: place.imageUri }} />
       <View>
         <Text>{place.title}</Text>
         <Text>{place.address}</Text>
@@ -10,6 +11,5 @@ function PlaceItem({ place, onSelect }) {
     </Pressable>
   );
 }
-export default PlaceItem;
 
-const styles = StyleSheet.create({});
+export default PlaceItem;

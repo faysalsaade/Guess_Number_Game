@@ -24,6 +24,14 @@ export default function App() {
             component={AllPlaces}
             options={{
               title: "Your Favorite Places",
+              headerRight: () => (
+                <IconButton
+                  icon="add-circle"
+                  size={36}
+                  color="#e63946"
+                  onPress={() => alert("Header button pressed!")}
+                />
+              ),
             }}
           />
           <Stack.Screen
