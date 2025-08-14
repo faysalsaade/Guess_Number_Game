@@ -1,6 +1,13 @@
-import { Button, View } from "react-native";
-import { launchCameraAsync, useCameraPermissions } from "expo-image-picker";
+import { Button, View, Alert, Image } from "react-native";
+import { useState } from "react";
+import {
+  launchCameraAsync,
+  useCameraPermissions,
+  PermissionStatus,
+} from "expo-image-picker";
+
 function ImagePicker() {
+  const [pickedImage, setPickedImage] = useState();
   const [cameraPermissionInformation, requestPermission] =
     useCameraPermissions();
   async function verifyPermissions() {
@@ -27,12 +34,17 @@ function ImagePicker() {
       aspect: [16, 9],
       quality: 0.5,
     });
-    console.log(image);
+    setPickedImage(image.uri);
   }
-  return (
-    <View>
-      <View></View>
-      <Button title="Take Image" onPress={takeImageHandler} />
-    </View>
-  );
 }
+let imagePreview = <Text>No image taken yet. </Text>;
+if (pickedImage) {
+  imagePreview = <Image source={{ uri: pickedImage }} />;
+}
+return (
+  <View>
+    <View>{imagePreview}</View>
+    <Button title="Take Image" onPress={takeImageHandler} />
+  </View>
+);
+export default ImagePicker;

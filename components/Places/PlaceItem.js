@@ -1,4 +1,4 @@
-import { Image, View, Text, Pressable } from "react-native";
+import { Image, View, Text, Pressable, StyleSheet } from "react-native";
 
 function PlaceItem({ place, onSelect }) {
   return (
@@ -13,3 +13,4 @@ function PlaceItem({ place, onSelect }) {
 }
 
 export default PlaceItem;
+const styles = StyleSheet.create({});

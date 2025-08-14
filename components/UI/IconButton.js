@@ -1,26 +1,21 @@
 import { Pressable, StyleSheet } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import { Colors } from "../constants/colors";
+
 function IconButton({ icon, size, color, onPress }) {
-  // Fallbacks for icon and color
-  const iconName = icon || "add";
-  const iconColor = color || Colors.gray700; // fallback to a visible red
   return (
     <Pressable
       style={({ pressed }) => [styles.button, pressed && styles.pressed]}
       onPress={onPress}
     >
-      <Ionicons name={iconName} size={size || 24} color={iconColor} />
+      <Ionicons name={icon} size={size} color={color} />
     </Pressable>
   );
 }
-
 export default IconButton;
 
 const styles = StyleSheet.create({
   button: {
     padding: 8,
-    margin: 4,
     justifyContent: "center",
     alignItems: "center",
   },
