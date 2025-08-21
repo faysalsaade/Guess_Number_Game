@@ -36,11 +36,11 @@ function ImagePicker() {
       aspect: [16, 9],
       quality: 0.5,
     });
-
     setPickedImage(image.uri);
   }
 
   let imagePreview = <Text>No image taken yet.</Text>;
+
   if (pickedImage) {
     imagePreview = <Image style={styles.image} source={{ uri: pickedImage }} />;
   }
