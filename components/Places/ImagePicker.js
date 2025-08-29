@@ -7,6 +7,8 @@ import {
 } from "expo-image-picker";
 import { Colors } from "../constants/colors";
 function ImagePicker() {
+  console.log("image picker");
+
   const [pickedImage, setPickedImage] = useState();
   const [cameraPermissionInformation, requestCameraPermission] =
     useCameraPermissions();
@@ -36,7 +38,8 @@ function ImagePicker() {
       aspect: [16, 9],
       quality: 0.5,
     });
-    setPickedImage(image.uri);
+
+    setPickedImage(image.assets[0].uri);
   }
 
   let imagePreview = <Text>No image taken yet.</Text>;
