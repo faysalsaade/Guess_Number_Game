@@ -1,4 +1,4 @@
-  import { StyleSheet, Image, Alert, Button, View, Text } from "react-native";
+import { StyleSheet, Image, Alert, View, Text } from "react-native";
 import { useState } from "react";
 import {
   launchCameraAsync,
@@ -6,6 +6,7 @@ import {
   PermissionStatus,
 } from "expo-image-picker";
 import { Colors } from "../constants/colors";
+import OutlinedButton from "../UI/OutlinedButton";
 function ImagePicker() {
   console.log("image picker");
 
@@ -35,7 +36,7 @@ function ImagePicker() {
     }
     const image = await launchCameraAsync({
       allowsEditing: true,
-      aspect: [16, 9],    
+      aspect: [16, 9],
       quality: 0.5,
     });
 
@@ -51,12 +52,14 @@ function ImagePicker() {
   return (
     <View>
       <View style={styles.imagePreview}>{imagePreview}</View>
-      <Button title="Take Image" onPress={takeImageHandler} />
+      <OutlinedButton icon="camera" onPress={takeImageHandler}>
+        Take Image
+      </OutlinedButton>
     </View>
   );
 }
 export default ImagePicker;
- const styles = StyleSheet.create({
+const styles = StyleSheet.create({
   imagePreview: {
     width: "100%",
     height: 200,
